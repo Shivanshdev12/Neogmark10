@@ -19,11 +19,15 @@ function init() {
 
   function cashHandler(notes) {
     var dp = [0, 0, 0, 0, 0, 0, 0];
+    //finding amount to return to customer
     var amtreturned = cashamt.value - billamt.value;
+
+    //going though available notes
     for (var i = 0; i < notes.length; i++) {
       dp[i] = Math.trunc(amtreturned / notes[i]);
       amtreturned %= notes[i];
       dpAttr[i].innerText = dp[i];
     }
+    //loop end
   }
 }
